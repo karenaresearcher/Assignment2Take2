@@ -1,6 +1,6 @@
 ---
 title: "Homework: Introduction to Statistical Programming"
-author: "Firstname Lastname"
+author: "Karen Alexander"
 output: html_document
 ---
 

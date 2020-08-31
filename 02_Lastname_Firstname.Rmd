@@ -14,8 +14,9 @@ options(digits = 3)
 require(SASmarkdown)
 sas_enginesetup(sashtml=sashtml)
 
-sasexe <- "C:/Program Files/SASHome/SASFoundation/9.4/sas.exe"
+sasexe <- "C:/Users/kglue/Desktop/My SAS Files/9.4/STATS850/sas.exe"
 sasopts <- "-nosplash -ls 75"
+library(SASmarkdown)
 
 # Linux options (for grading, please leave this in!)
 sasexe <- "/usr/local/SASHome/SASFoundation/9.4/bin/sas_en"

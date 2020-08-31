@@ -69,24 +69,15 @@ data hw2;
   output;
   end;
   run;
-  data = hw2;
-  if mod(i,15) = 0 then 
-    do;
-      i = "FizzBuzz"
-    end;
-    else if mod(i,5) = 0 then 
-      do;
-        i =  "Buzz"
-      end;
-      else if mod(i,3) = 0 then 
-        do;
-          i =  "Fizz"
-        end;
-          else i = i;
-        print i;
-    run;
-    proc print;
-    run;
+ data = hw2;
+  if mod(i,15) = 0 then
+  	if mod(i,3) = 0 then
+		  if mod(i,5) = 0 then i = i;
+  		else i = 'Buzz';
+	  else i = 'Fizz';
+  else i = 'FizzBuzz';
+  print i;
+  run;    
 QUIT;
 
 /* FizzBuzz code goes here */

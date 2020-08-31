@@ -52,7 +52,10 @@ In the R chunk below, write code which will solve this problem.
 ```{r fizzbuzz-solution, echo = T}
 
 # FizzBuzz code goes here
-
+for (i in 1:30) 
+  ifelse(i %% 15 == 0, print("FizzBuzz"),
+          ifelse(i %% 3 == 0, print("Fizz"),
+              ifelse(i %% 5 == 0, print("Buzz"), print(i))))
 
 
 ```
@@ -61,6 +64,30 @@ In the sas chunk, write similar code which will solve this problem.
 
 ```{r fizzbuzz-sas, engine="sashtml", engine.path=sasexe, engine.opts=sasopts, error = T}
 PROC IML;
+data hw2;
+  do i = 1 to 30;
+  output;
+  end;
+  run;
+  data = hw2;
+  if mod(i,15) = 0 then 
+    do;
+      i = "FizzBuzz"
+    end;
+    else if mod(i,5) = 0 then 
+      do;
+        i =  "Buzz"
+      end;
+      else if mod(i,3) = 0 then 
+        do;
+          i =  "Fizz"
+        end;
+          else i = i;
+        print i;
+    run;
+    proc print;
+    run;
+QUIT;
 
 /* FizzBuzz code goes here */
 
@@ -122,7 +149,10 @@ res <- rep(NA, 4)
 # Store your answer in res: 
 
 # res <- .....
-
+xtrans <- t(X)
+xinv <- solve((xtrans %*% X))
+beta <- xinv %*% (xtrans %*% Y)
+res <- beta
 
 # ------------------------------------------------------------------------------
 # Do not edit this
@@ -170,13 +200,18 @@ X1[,1] = 1; /* Intercept column */
 varname[1] = "Intercept";
 varname_t = varname`; /* Make a column vector to match the fitted coefs */
     
-* PRINT Y X1 varname_t; /* Just checking */
+* PRINT Y X1; /* Just checking */
     
 /* Find the estimated coefficients for each of the explanatory variables using */
 /* simple matrix operations. Store your answer in res */
-
-res = ...
-     
+XT = X1';
+PRINT XT;
+XTX = XT * X1;
+PRINT XTX;
+res = inv(XTX) * XT * Y;
+PRINT res;
+RUN;
+    
 /* Dont edit this */     
 PRINT varname_t res; /* Print coefs with labels */
 QUIT;

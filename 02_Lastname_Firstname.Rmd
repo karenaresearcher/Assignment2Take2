@@ -16,11 +16,10 @@ sas_enginesetup(sashtml=sashtml)
 
 sasexe <- "C:/Users/kglue/Desktop/My SAS Files/9.4/STATS850/sas.exe"
 sasopts <- "-nosplash -ls 75"
-library(SASmarkdown)
 
 # Linux options (for grading, please leave this in!)
-sasexe <- "/usr/local/SASHome/SASFoundation/9.4/bin/sas_en"
-sasopts <- "-ls 75"
+# sasexe <- "/usr/local/SASHome/SASFoundation/9.4/bin/sas_en"
+# sasopts <- "-ls 75"
 ```
 
 ## Instructions
@@ -49,7 +48,7 @@ The "FizzBuzz Test" is a famous programming interview question.
 
 In the R chunk below, write code which will solve this problem. 
 
-```{r fizzbuzz-solution, echo = T}
+```{r fizzbuzz-solution,echo = T}
 
 # FizzBuzz code goes here
 for (i in 1:30) 
@@ -62,8 +61,10 @@ for (i in 1:30)
 
 In the sas chunk, write similar code which will solve this problem.
 
-```{r fizzbuzz-sas, engine="sashtml", engine.path=sasexe, engine.opts=sasopts, error = T}
+```{r fizzbuzz-sas, engine="sashtml",engine.path=sasexe,engine.opts=sasopts,error = T}
 PROC IML;
+
+/* FizzBuzz code goes here */
 data hw2;
   do i = 1 to 30;
   output;
@@ -80,9 +81,6 @@ data hw2;
   run;    
 QUIT;
 
-/* FizzBuzz code goes here */
-
-QUIT;
 ```
 
 
